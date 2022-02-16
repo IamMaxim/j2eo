@@ -1,6 +1,7 @@
 package translator
 
 import arrow.core.some
+import eotree.EOBndExpr
 import eotree.EOCopy
 import eotree.EODot
 import eotree.EOExpr
@@ -17,6 +18,37 @@ import tree.Expression.Primary.This
 import tree.Expression.SimpleReference
 import tree.Expression.UnaryPostfix
 import tree.Expression.UnaryPrefix
+
+data class ExpressionMappingResult(
+    val bnds: List<EOBndExpr>,
+    val stmt: EOCopy,
+)
+
+// fun mapExpressionNew(expr: Expression): ExpressionMappingResult =
+//    when (expr) {
+//        is MethodInvocation ->
+//            mapMethodInvocation(expr)
+//        is Literal ->
+//            mapLiteral(expr)
+//        is UnaryPrefix ->
+//            mapUnaryPrefix(expr)
+//        is UnaryPostfix ->
+//            mapUnaryPostfix(expr)
+//        is Binary ->
+//            mapBinary(expr)
+//        is SimpleReference ->
+//            mapSimpleReference(expr)
+//        is FieldAccess ->
+//            mapFieldAccess(expr)
+//        is This ->
+//            mapThis(expr)
+//        is Parenthesized ->
+//            mapParenthesized(expr)
+//        else ->
+//            throw IllegalArgumentException("Expression of type ${expr.javaClass.simpleName} is not supported")
+//    }
+
+// fun mapMethodInvocationNew(expr: Expression): ExpressionMappingResult =
 
 fun mapExpression(expr: Expression): EOExpr =
     when (expr) {
